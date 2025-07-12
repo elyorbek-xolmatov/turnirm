@@ -3,84 +3,639 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - PUBG Turnir</title>
+    <title>VIP VIBE - Premium Sayt</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #8a2be2;
+            --secondary: #4b0082;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            z-index: 1;
+            opacity: 0.7;
+        }
+        
+        /* FEATURES SECTION */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(138, 43, 226, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            padding: 30px;
+        }
+        
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .client {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        /* CONTACT */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-image {
+                opacity: 0.4;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: rgba(26, 26, 46, 0.95);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.4s ease;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+                padding-top: 60px;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-<body class="admin-page">
-    <!-- Navbar -->
-    <nav class="admin-navbar">
+<body>
+    <!-- HEADER -->
+    <header>
         <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="PUBG Turnir" class="logo-img">
-                <span>Admin Panel</span>
-            </div>
-            <div class="admin-nav-links">
-                <a href="#" id="darkModeToggle"><i class="fas fa-moon"></i></a>
-                <div class="admin-user">
-                    <div class="admin-avatar" id="adminAvatar">
-                        <span class="avatar-initial">A</span>
-                    </div>
-                    <div class="admin-dropdown">
-                        <a href="#" data-page="profile"><i class="fas fa-user"></i> Profil</a>
-                        <a href="#" data-page="settings"><i class="fas fa-cog"></i> Sozlamalar</a>
-                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a>
-                    </div>
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-wave-square"></i>
+                    VIBE
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Bosh Sahifa</a></li>
+                    <li><a href="#features">Imkoniyatlar</a></li>
+                    <li><a href="#testimonials">Fikrlar</a></li>
+                    <li><a href="#contact">Aloqa</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium <span style="color: var(--accent);">VIBE</span> Tajribasiga Ega Bo'ling</h1>
+                <p>Bizning platforma orqali siz eng zamonaviy va ajoyib kontentni kashf eting. Har bir lahza yangi hissiyot!</p>
+                <div class="hero-btns">
+                    <a href="#features" class="btn">Boshlash</a>
+                    <a href="#contact" class="btn btn-secondary">Bog'lanish</a>
                 </div>
             </div>
         </div>
-    </nav>
-    
-    <!-- Admin Container -->
-    <div class="admin-container">
-        <!-- Sidebar -->
-        <div class="admin-sidebar">
-            <ul class="admin-menu">
-                <li class="active"><a href="#" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-                <li><a href="#" data-page="users"><i class="fas fa-users"></i> <span>Foydalanuvchilar</span></a></li>
-                <li><a href="#" data-page="tournaments"><i class="fas fa-trophy"></i> <span>Turnirlar</span></a></li>
-                <li><a href="#" data-page="payments"><i class="fas fa-credit-card"></i> <span>To'lovlar</span></a></li>
-                <li><a href="#" data-page="teams"><i class="fas fa-users"></i> <span>Jamoalar</span></a></li>
-                <li><a href="#" data-page="reports"><i class="fas fa-chart-bar"></i> <span>Hisobotlar</span></a></li>
-            </ul>
+        <div class="hero-image">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#8A2BE2" d="M43.8,-59.8C56.2,-49.7,64.7,-35.3,69.2,-19.3C73.7,-3.4,74.1,13.9,68.7,28.6C63.3,43.2,52,55.1,38.5,62.5C25.1,69.8,9.4,72.5,-5.9,73.7C-21.2,74.9,-35.9,74.5,-46.8,66.6C-57.7,58.7,-64.8,43.3,-69.4,27.3C-74,11.4,-76.1,-5.1,-71.7,-19.1C-67.4,-33.1,-56.6,-44.6,-44.1,-54.7C-31.6,-64.8,-17.4,-73.6,-0.6,-73C16.2,-72.3,32.5,-62.2,43.8,-59.8Z" transform="translate(100 100)" />
+            </svg>
         </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Bizning Imkoniyatlar</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Tezkor Ish</h3>
+                    <p>Bizning platforma ajoyib tezlikda ishlaydi. Hech qanday kutish vaqti!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Yuqori Xavfsizlik</h3>
+                    <p>Ma'lumotlaringiz eng zamonaviy shifrlash usullari bilan himoyalangan.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Mos Dizayn</h3>
+                    <p>Har qanday qurilmada mukammal ko'rinadigan moslashuvchan dizayn.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Avtomatik Yangilanish</h3>
+                    <p>Platforma doimiy ravishda o'z-o'zini yangilaydi va takomillashtiradi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Foydalanuvchilar Fikrlari</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-content">"VIBE platformasi mening ishimni butunlay o'zgartirdi. Kontentni kashf qilish juda oson va zavqli!"</p>
+                    <p class="client">- Azizbek, Toshkent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Biz bilan Aloqa</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Ismingiz</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Elektron Pochta</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Xabar</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Xabarni Yuborish</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VIBE Platformasi</h3>
+                    <p>Eng yangi kontentlar va ajoyib tajribalar faqat bizda!</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Foydali Havolalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Bosh Sahifa</a></li>
+                        <li><a href="#features">Imkoniyatlar</a></li>
+                        <li><a href="#testimonials">Fikrlar</a></li>
+                        <li><a href="#contact">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Yordam Markazi</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Qo'llanma</a></li>
+                        <li><a href="#">Maxfiylik Siyosati</a></li>
+                        <li><a href="#">Foydalanish Shartlari</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 VIBE Platformasi. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
         
-        <!-- Main Content -->
-        <div class="admin-content" id="adminContent">
-            <!-- Sahifa kontenti dinamik ravishda yuklanadi -->
-            <div class="welcome-message">
-                <h1>PUBG Turnir Admin Paneliga Xush Kelibsiz!</h1>
-                <p>Boshqaruv panelidan foydalanish uchun yuqoridagi menyudan kerakli bo'limni tanlang.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Oyna -->
-    <div class="admin-modal" id="adminModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle"><i class="fas fa-info-circle"></i> Modal Sarlavha</h3>
-                <button class="modal-close" id="modalClose">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Modal kontenti -->
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" id="modalCancel">Bekor qilish</button>
-                <button class="btn btn-primary" id="modalConfirm">Tasdiqlash</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/admin.js"></script>
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real app, you would send this data to a server
+            console.log({ name, email, message });
+            
+            // Show success message
+            alert(`Rahmat, ${name}! Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-                    <p>Akkauntingiz bormi? <a href="#" id="showLogin">Kirish</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="js/auth.js"></script>
