@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish/Ro'yxatdan o'tish - PUBG Turnir</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-logo">
+            <img src="images/logo.png" alt="PUBG Turnir">
+            <h1>PUBG Turnir</h1>
+        </div>
+        
+        <div class="auth-box">
+            <div class="flip-container" id="flipContainer">
+                <!-- Login Form -->
+                <div class="auth-form login-form">
+                    <h2>Kirish</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Parol</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Kirish</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Akkauntingiz yo'qmi? <a href="#" id="showRegister">Ro'yxatdan o'tish</a></p>
+                    </div>
+                </div>
+                
+                <!-- Register Form -->
+                <div class="auth-form register-form">
+                    <h2>Ro'yxatdan o'tish</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerUsername">Foydalanuvchi nomi</label>
+                            <input type="text" id="registerUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Parol</label>
+                            <input type="password" id="registerPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirm">Parolni tasdiqlash</label>
+                            <input type="password" id="registerConfirm" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Ro'yxatdan o'tish</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Akkauntingiz bormi? <a href="#" id="showLogin">Kirish</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="auth-social">
+            <p>Yoki ijtimoiy tarmoqlar orqali kirish:</p>
+            <div class="social-buttons">
+                <a href="#" class="btn btn-social google">
+                    <i class="fab fa-google"></i> Google
+                </a>
+                <a href="#" class="btn btn-social facebook">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

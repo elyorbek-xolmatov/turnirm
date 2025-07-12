@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erangel Turniri - PUBG Turnir</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar (index.html dagi bilan bir xil) -->
+    
+    <!-- Hero Section -->
+    <section class="tournament-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/erangel-bg.jpg');">
+        <div class="container">
+            <div class="tournament-header">
+                <h1>Erangel Classic</h1>
+                <div class="tournament-meta">
+                    <span class="tournament-date"><i class="far fa-calendar-alt"></i> 15 Avgust, 2023</span>
+                    <span class="tournament-prize"><i class="fas fa-trophy"></i> 1,000,000 UZS</span>
+                </div>
+                <div class="tournament-status">
+                    <span class="badge open">Qabul qilinmoqda</span>
+                    <span class="participants-count"><i class="fas fa-users"></i> 48/100 ishtirokchi</span>
+                </div>
+                <button class="btn btn-primary btn-lg join-btn" data-tournament="Erangel Classic">
+                    <i class="fas fa-user-plus"></i> Turnirga qatnashish
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Details -->
+    <section class="tournament-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="details-card">
+                    <h2><i class="fas fa-info-circle"></i> Turnir haqida</h2>
+                    <div class="detail-item">
+                        <h3>Format</h3>
+                        <p>4 kishilik jamoalar, 25 ta jamoa, Erangel xaritasi, TPP rejimi</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Qoidalar</h3>
+                        <ul>
+                            <li>Har bir jamoa 4 o'yinchidan iborat bo'lishi shart</li>
+                            <li>O'yin davomida hile ishlatish taqiqlanadi</li>
+                            <li>Turnir 3 bosqichdan iborat bo'ladi</li>
+                            <li>Har bir bosqich 30 daqiqa davom etadi</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Sovg'alar</h3>
+                        <ul class="prizes-list">
+                            <li><span class="prize-place">1-o'rin:</span> 1,000,000 UZS</li>
+                            <li><span class="prize-place">2-o'rin:</span> 500,000 UZS</li>
+                            <li><span class="prize-place">3-o'rin:</span> 250,000 UZS</li>
+                            <li><span class="prize-place">Eng yaxshi o'yinchi:</span> Maxsus sovg'a</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="details-card">
+                    <h2><i class="fas fa-calendar-alt"></i> Jadval</h2>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:00</div>
+                        <div class="schedule-event">
+                            <h3>Registratsiya</h3>
+                            <p>Ishtirokchilarni ro'yxatga olish</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">18:30</div>
+                        <div class="schedule-event">
+                            <h3>Texnik tekshiruv</h3>
+                            <p>Barcha ishtirokchilarni tekshirish</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:00</div>
+                        <div class="schedule-event">
+                            <h3>1-bosqich</h3>
+                            <p>Asosiy o'yin bosqichi</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">20:00</div>
+                        <div class="schedule-event">
+                            <h3>2-bosqich</h3>
+                            <p>Yarim final</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00</div>
+                        <div class="schedule-event">
+                            <h3>Final</h3>
+                            <p>Final bosqichi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participants -->
+    <section class="tournament-participants">
+        <div class="container">
+            <h2 class="section-title">Qatnashuvchilar</h2>
+            <div class="participants-filter">
+                <div class="filter-group">
+                    <label for="teamFilter">Jamoa bo'yicha filtrlash:</label>
+                    <select id="teamFilter">
+                        <option value="all">Barcha jamoalar</option>
+                        <option value="phoenix">Phoenix</option>
+                        <option value="wolves">Wolves</option>
+                        <option value="dragons">Dragons</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="statusFilter">Holat bo'yicha filtrlash:</label>
+                    <select id="statusFilter">
+                        <option value="all">Barcha</option>
+                        <option value="confirmed">Tasdiqlangan</option>
+                        <option value="pending">Kutilmoqda</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="teams-grid">
+                <div class="team-card">
+                    <div class="team-header">
+                        <h3>Phoenix</h3>
+                        <span class="team-status confirmed">Tasdiqlangan</span>
+                    </div>
+                    <div class="team-members">
+                        <div class="member">
+                            <div class="member-avatar" style="background-color: #2196F3;">S</div>
+                            <div class="member-info">
+                                <h4>Shoxrux</h4>
+                                <span class="member-role">Jamoa sardori</span>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar" style="background-color: #FF5722;">J</div>
+                            <div class="member-info">
+                                <h4>Javohir</h4>
+                                <span class="member-role">O'qchi</span>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar" style="background-color: #4CAF50;">S</div>
+                            <div class="member-info">
+                                <h4>Sarvar</h4>
+                                <span class="member-role">Dasturchi</span>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <div class="member-avatar" style="background-color: #9C27B0;">A</div>
+                            <div class="member-info">
+                                <h4>Aziz</h4>
+                                <span class="member-role">Strateg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Boshqa jamoalar -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (index.html dagi bilan bir xil) -->
+    
+    <!-- Modal va AI Yordamchi (index.html dagi bilan bir xil) -->
+
+    <script src="js/script.js"></script>
+    <script src="js/tournament.js"></script>
+</body>
+</html>

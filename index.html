@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - PUBG Turnir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="PUBG Turnir" class="logo-img">
+                <span>Admin Panel</span>
+            </div>
+            <div class="admin-nav-links">
+                <a href="#" id="darkModeToggle"><i class="fas fa-moon"></i></a>
+                <div class="admin-user">
+                    <div class="admin-avatar" id="adminAvatar">
+                        <span class="avatar-initial">A</span>
+                    </div>
+                    <div class="admin-dropdown">
+                        <a href="#" data-page="profile"><i class="fas fa-user"></i> Profil</a>
+                        <a href="#" data-page="settings"><i class="fas fa-cog"></i> Sozlamalar</a>
+                        <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Admin Container -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <ul class="admin-menu">
+                <li class="active"><a href="#" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="#" data-page="users"><i class="fas fa-users"></i> <span>Foydalanuvchilar</span></a></li>
+                <li><a href="#" data-page="tournaments"><i class="fas fa-trophy"></i> <span>Turnirlar</span></a></li>
+                <li><a href="#" data-page="payments"><i class="fas fa-credit-card"></i> <span>To'lovlar</span></a></li>
+                <li><a href="#" data-page="teams"><i class="fas fa-users"></i> <span>Jamoalar</span></a></li>
+                <li><a href="#" data-page="reports"><i class="fas fa-chart-bar"></i> <span>Hisobotlar</span></a></li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="admin-content" id="adminContent">
+            <!-- Sahifa kontenti dinamik ravishda yuklanadi -->
+            <div class="welcome-message">
+                <h1>PUBG Turnir Admin Paneliga Xush Kelibsiz!</h1>
+                <p>Boshqaruv panelidan foydalanish uchun yuqoridagi menyudan kerakli bo'limni tanlang.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Oyna -->
+    <div class="admin-modal" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"><i class="fas fa-info-circle"></i> Modal Sarlavha</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal kontenti -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalCancel">Bekor qilish</button>
+                <button class="btn btn-primary" id="modalConfirm">Tasdiqlash</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
+                    <p>Akkauntingiz bormi? <a href="#" id="showLogin">Kirish</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Turnir Admin Paneli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+    <!-- Navbar -->
+    <nav class="admin-navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="images/pubg-logo.png" alt="PUBG Turnir" class="navbar-logo">
+                <span class="navbar-title">PUBG Turnir Admin</span>
+            </div>
+            
+            <div class="navbar-actions">
+                <button id="mobileMenuBtn" class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="navbar-controls">
+                    <button id="darkModeToggle" class="nav-control-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="user-dropdown">
+                        <button class="user-avatar" id="userAvatar">
+                            <span class="avatar-initial">A</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#" data-page="profile"><i class="fas fa-user-cog"></i> Profilim</a>
+                            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Chiqish</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Asosiy Kontent -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <ul class="admin-menu">
+                <li class="menu-item active">
+                    <a href="#" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="menu-text">Boshqaruv Paneli</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-page="players">
+                        <i class="fas fa-users"></i>
+                        <span class="menu-text">O'yinchilar</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-page="tournaments">
+                        <i class="fas fa-trophy"></i>
+                        <span class="menu-text">Turnirlar</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-page="teams">
+                        <i class="fas fa-users"></i>
+                        <span class="menu-text">Jamoalar</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-page="payments">
+                        <i class="fas fa-credit-card"></i>
+                        <span class="menu-text">To'lovlar</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-page="reports">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="menu-text">Hisobotlar</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-page="settings">
+                        <i class="fas fa-cogs"></i>
+                        <span class="menu-text">Sozlamalar</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <!-- Asosiy Maydon -->
+        <main class="admin-content" id="adminContent">
+            <!-- Breadcrumb navigatsiya -->
+            <div class="breadcrumb" id="breadcrumb">
+                <a href="#" data-page="dashboard"><i class="fas fa-home"></i></a>
+            </div>
+            
+            <!-- Kontent dinamik ravishda yuklanadi -->
+            <div class="welcome-message">
+                <h1><i class="fas fa-tachometer-alt"></i> Boshqaruv Paneli</h1>
+                <p>Turnirlaringizni boshqarish uchun yon menyudan kerakli bo'limni tanlang</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Oynalar -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="mainModal">
+        <div class="modal-header">
+            <h3 id="modalTitle">Modal Sarlavha</h3>
+            <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Modal kontenti -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" id="modalCancel">Bekor qilish</button>
+            <button class="btn btn-primary" id="modalConfirm">Tasdiqlash</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
